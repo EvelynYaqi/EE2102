@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.8.2)  4 AUG 2023 22:19
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.8.2)  5 AUG 2023 22:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1240,9 +1240,9 @@ Package rerunfilecheck Info: File `Assignment_1.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 29127 strings out of 478287
- 574738 string characters out of 5849290
- 847519 words of memory out of 5000000
+ 29137 strings out of 478287
+ 574861 string characters out of 5849290
+ 850519 words of memory out of 5000000
  46713 multiletter control sequences out of 15000+600000
  539168 words of font info for 177 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
@@ -1255,10 +1255,10 @@ onts/txsy.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txsyc.p
 fb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/
 texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-d
 ist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Assignment_1.pdf (1 page, 52957 bytes).
+Output written on Assignment_1.pdf (1 page, 52905 bytes).
 PDF statistics:
- 59 PDF objects out of 1000 (max. 8388607)
- 39 compressed objects within 1 object stream
- 4 named destinations out of 1000 (max. 500000)
+ 72 PDF objects out of 1000 (max. 8388607)
+ 52 compressed objects within 1 object stream
+ 14 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
