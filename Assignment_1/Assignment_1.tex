@@ -232,22 +232,28 @@ ASSIGNMENT-1
 	\text{CA}, & \quad is \quad \myvec{1&-1}\vec{x}=2,\\
 	\text{AB}, & \quad is \quad \myvec{7&5}\vec{x}=2\\	  
 	\end{align}
-	Using the formula mentioned in the question to find out the angular bisector for sides \text{AB} and \text{AC}, naming the angular bisector $\vec{d}$ we get,\\
+	Using the formula mentioned in the question to find out the angular bisector for sides \text{AB} and \text{AC}, naming the angular bisector $L$ we get,\\
 	\begin{align}
 		\frac{\vec{n}_{3}^{\top} \vec{x}-c_{3}}{\norm{\vec{n}_{3}}}=\pm \frac{\vec{n}_{2}^{\top} \vec{x}-c_{2}}{\norm{\vec{n}_{2}}}
 	\end{align}
-	As we can see we'll get 2 solutions for $\vec{d}$. This is because one of them is internal angular bisector and the other is the external angular bisector. Internal angular bisector can be evaluated if we take "+" in the above formula.\\
-	Hence, $\vec{d}$ is given by,\\
+	As we can see we'll get 2 solutions for $L$. This is because one of them is internal angular bisector and the other is the external angular bisector. Internal angular bisector can be evaluated if we take "+" in the above formula.\\
+	Hence, $L$ is given by,\\
 	\begin{align}
 		\frac{\vec{n}_{3}^{\top} \vec{x}-c_{3}}{\norm{\vec{n}_{3}}}&=\frac{\vec{n}_{2}^{\top} \vec{x}-c_{2}}{\norm{\vec{n}_{2}}}\\
 		\brak{\frac{\vec{n_{3}}}{\norm{\vec{n_{3}}}}-\frac{\vec{n_{3}}}{\norm{\vec{n_{3}}}}} \vec{x}&=\brak{\frac{c_{3}}{\norm{\vec{n_{3}}}}-\frac{c_{2}}{\norm{\vec{n_{2}}}}}\\
 		\brak{\frac{\myvec{7&5}}{\sqrt{74}}-\frac{\myvec{1&-1}}{\sqrt{2}}} \vec{x}&=\frac{2}{\sqrt{74}}-\frac{2}{\sqrt{2}}\\
 		\myvec{\frac{7-\sqrt{37}}{\sqrt{74}}&\frac{5+\sqrt{37}}{\sqrt{74}}}\vec{x}&=\frac{2-2\sqrt{37}}{\sqrt{74}}
 	\end{align}
-	Hence, the internal angluar bisector of angle \text{A},\\$\vec{d}$ will be,\\
+	Hence, the internal angluar bisector of angle \text{A},\\$L$ will be,\\
 	\begin{align}
 		\myvec{\frac{7-\sqrt{37}}{\sqrt{74}}&\frac{5+\sqrt{37}}{\sqrt{74}}} \vec{x}=\frac{2-2\sqrt{37}}{\sqrt{74}}
 	\end{align}
+	\begin{figure}
+	\centering
+	\includegraphics[width=\columnwidth]{/home/lancelot/Latex/EE2102/Assignment_1/angular_bisector.pdf}
+	\caption{Triangle generated using python}
+	\label{fig:angular_bisector}
+	\end{figure}
 \end{document}
 
 
