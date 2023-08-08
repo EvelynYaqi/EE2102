@@ -8,6 +8,8 @@ import math
 from line.funcs import *
 from triangle.funcs import *
 from conics.funcs import circ_gen
+def unit_vec(A,B):
+	return ((B-A)/np.linalg.norm(B-A))
 
 
 
@@ -53,16 +55,10 @@ plt.savefig('/home/lancelot/Latex/EE2102/Assignment_1/figs/angular_bisector.png'
 A=np.array([1, -1])
 B=np.array([-4, 6])
 C=np.array([-3, -5])
-D=B-A
-n3=np.array([D[1],D[0]*(-1)])
-norm_n3 = np.linalg.norm(D)
-vec_c3= n3 * A
-c3 = vec_c3[0]+vec_c3[1]
-E=C-A
-n2=np.array([E[1],E[0]*(-1)])
-norm_n2 = norm_vec(C,A)
-n2=np.array([E[1]*(-1),E[0]])
-norm_n2 = np.linalg.norm(E)
-vec_c2= n2 * C
-c2 = vec_c2[0]+vec_c2[1]
-print("Internal Angular bisector of angle A is:\n",(n3/norm_n3)-(n2/norm_n2),"x = ",(c3/norm_n3)-(c2/norm_n2))
+#using parallelogram theorem
+E= unit_vec(A,B) + unit_vec(A,C)
+#point generated to create parametric form
+#generating normal form
+F=np.array([E[1],(E[0]*(-1))])
+C1=A[0]*F[0]+A[1]*F[1]
+print("Internal Angular bisector of angle A is:",F,"*x = ",C1)
