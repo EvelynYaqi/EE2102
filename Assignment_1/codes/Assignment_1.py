@@ -60,5 +60,6 @@ E= unit_vec(A,B) + unit_vec(A,C)
 #point generated to create parametric form
 #generating normal form
 F=np.array([E[1],(E[0]*(-1))])
-C1=A[0]*F[0]+A[1]*F[1]
+#matrix multiplication
+C1= F@(A.T)
 print("Internal Angular bisector of angle A is:",F,"*x = ",C1)
