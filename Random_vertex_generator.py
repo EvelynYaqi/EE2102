@@ -34,8 +34,8 @@ plt.legend()
 plt.grid()# minor
 
 #If using termux
-plt.savefig('/home/lancelot/Latex/EE2102/Assignment_2/figs/pmf.pdf')
+#plt.savefig('/home/lancelot/Latex/EE2102/Assignment_2/figs/pmf.pdf')
 #plt.savefig('/home/lancelot/Latex/EE2102/Assignment_2/figs/pmf.png')
 #subprocess.run(shlex.split("termux-open figs/pmf.pdf"))
 #else
-#plt.show()
+plt.show()
