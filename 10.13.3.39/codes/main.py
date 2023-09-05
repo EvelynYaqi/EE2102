@@ -5,7 +5,7 @@ import random as rand
 # np.set_printoptions(threshold=np.inf)
 
 # Using dice rolls
-n =3600
+n =10000
 choices = [0,1,6]
 weights = [0.167,0.5,0.333]
 def dice_roll():
@@ -19,8 +19,8 @@ print(sum_die,"\n")
 values, sim_count = np.unique(sum_die, return_counts=True)
 #x_1 = np.array(x_1)
 pmf_sum_sim = np.array(sim_count)/n
-print("value =",values,"\n","sim_count =",sim_count)
-thry_count = [100,600,900,400,1200,400]
+print("value =",values,"\n","probability =",pmf_sum_sim)
+thry_count = [n/36,n/6,n/4,n/9,n/3,n/9]
 
 # Create a stem plot
 plt.stem(values, sim_count, basefmt=' ', linefmt='-b', markerfmt='ob', use_line_collection=True)
@@ -32,7 +32,7 @@ plt.xlabel('Sum')
 plt.ylabel('PMF')
 
 # Show the plot
-plt.legend(['Theoretical', 'Simulated'])
+plt.legend(['Simulated', 'Theoretical'])
 plt.savefig('/home/lancelot/Latex/EE2102/10.13.3.39/figs/plot.png')
 plt.show()
 
