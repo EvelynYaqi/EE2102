@@ -122,13 +122,7 @@ Let the random variables be defined as:
 	\xleftrightarrow{Z}\\
 	\frac{\brak{1+3z^{-1}+2z^{-6}}^{2}\brak{1-z^{-1}}^{2}}{36\brak{1-z^{-1}}^{2}}
 	\end{multline}
-	The probability mass function for the case where total score of both the dice is 'k' is,
-	\begin{align}
-		p_{X+Y}(k) &= \pr{X+Y=k}\\
-			&= \pr{X=k-Y}\\
-			&= E\brak{p_X(k-Y)}\\
-			&= \sum_{i=0}^{6}\brak{p_X(k-i)}\brak{p_Y(i)}
-	\end{align}
+	The probability function for the sum of the numbers appearing on both the dice,
 	\begin{align}
   p_X(n) &= 
   \begin{cases}
@@ -143,20 +137,14 @@ Let the random variables be defined as:
   \frac{1}{3} &   n = 7
   \\
   0 &   else
-  \end{cases}
+  \end{cases} \label{eq:10_13_3_39_1}
   	\end{align}
 	The possible outcomes: 0,1,2,6,7\&12
-\begin{figure}[h!]
+\begin{figure}[ht!]
         \includegraphics[width=\columnwidth]{/home/lancelot/Latex/EE2102/10.13.3.39/figs/plot.png}
-        \caption{Sketch of Probability Mass Function for Sum} 
+        \caption{Sketch of Probability Mass Function for Sum generated using $\eqref{eq:10_13_3_39_1}$} 
 \end{figure}
 \item \textbf{Probability of getting a 7 :} 
-	\begin{align}
-		p_{X+Y}(7) &= \sum_{i=0}^{6}\brak{p_X(7-i)}\brak{p_Y(i)}\\
-			&= p_X(6)p_Y(1) + p_X(1)p_Y(6)\\
-			&= \frac{1}{3}\times\frac{1}{2} + \frac{1}{2}\times\frac{1}{3}\\
-			&= \frac{1}{3}
-	\end{align}
-	The probability of getting a 7 that we obtained by using Z-transform and PMF are the same, i.e $\frac{1}{3}$.
+	From $\eqref{eq:10_13_3_39_1}$, the probability of getting the sum of 2 numbers appearing on the dice to be 7, would be $\frac{1}{3}$.
 \end{enumerate}
 \end{document}
