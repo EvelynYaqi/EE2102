@@ -219,21 +219,27 @@ The probability distribution of a random variable X is given below:
         \hline
         X & 0 & 1 & 2 & 3 \\
         \hline
-        P(X) & $k$ & $\frac{k}{2}$ & $\frac{k}{4}$ & $\frac{k}{8}$ \\
+        $P(X)$ & $k$ & $\frac{k}{2}$ & $\frac{k}{4}$ & $\frac{k}{8}$ \\
         \hline
     \end{tabular}
 \end{table}
 \begin{enumerate}
     \item Determine the value of $k$.
-    \item Determine P(X $\le$ 2) and P(X $>$ 2).
-    \item Find P(X $\le$ 2) + P (X $>$ 2).
+    \item Determine $P(X \le 2)$ and $P(X > 2)$.
+    \item Find $P(X \le 2)$ + $P(X > 2)$.
 \end{enumerate}
 \solution 
 \begin{enumerate}
-\item \textbf{Value of $k$:} We know that sum of probability of all the random variables is 1, i.e.,
+\item \textbf{Value of $k$:} The cumulative distribution function of X is,
 \begin{align}
-	\sum_{i = -\infty}^{\infty}P(i) &= 1\\
-	\implies P(0)+P(1)+P(2)+P(3) &= 1\\
+	F_{X}(k) &= \pr{X \le k}\\
+	&= \sum_{i=0}^{k}p_X(i) 
+\end{align}
+As X can only take values to 3, we can say that,
+\begin{align}
+	F_{X}(k \ge 3) &= 1\\
+	\sum_{i=0}^{k}p_X(k) &= 1\\
+	\implies p_X(0)+p_X(1)+p_X(2)+p_X(3) &= 1\\
 	\implies k +\frac{k}{2} + \frac{k}{4} + \frac{k}{8} &= 1\\
 	\implies \frac{15k}{8} &= 1\\
 	\implies k &= \frac{8}{15}
@@ -241,7 +247,7 @@ The probability distribution of a random variable X is given below:
 Hence, the value of k is $\frac{8}{15}$.
 This makes the data given in the question as follows,
 \begin{align}
-P(k) &= 
+p_{X}(k) &= 
 		\begin{cases}
 			\frac{8}{15} & \text{if } k = 0 \\
 			\frac{4}{15} & \text{if } k = 1 \\
@@ -249,29 +255,50 @@ P(k) &=
 			\frac{1}{15} & \text{if } k = 3 \\
 			0 & \text{Otherwise}
 		\end{cases}
+\end{align} \label{eq:12.13.3.25.4}
+Using the value of k we can also find CDF of X,
+\begin{align}
+F_{X}(k) &= 
+		\begin{cases}
+			0 & \text{if } k<0\\
+			\frac{8}{15} & \text{if } k = 0 \\
+			\frac{4}{5} & \text{if } k = 1 \\
+			\frac{14}{15} & \text{if } k = 2 \\
+			1 & \text{if } k \ge 3
+		\end{cases} \label{eq:12.13.3.25.3}
 \end{align}
-\item \textbf{Value of P(X $\le$ 2) and P(X $>$ 2):}
+\item \textbf{Value of $P(X \le 2)$ and $P(X > 2)$:}
 	\begin{enumerate}
-	\item \textbf{Value of P(X $\le$ 2):} P(X $\le$ 2) translates to sum of probabilities of all random variables less than or equal to 2, i.e.,
+	\item \textbf{Value of $P(X \le 2)$:} $\pr{X \le 2}$ translates to sum of probabilities of all states of the random variable that are less than or equal to 2. From \eqref{eq:12.13.3.25.3},
 	\begin{align}
-	P(X \le 2) &= \sum_{i = -\infty}^{2}P(i)\\
-	\implies P(X \le 2) &= P(0)+P(1)+P(2) \\
-	\implies P(X \le 2) &= \frac{8}{15}+\frac{4}{15}+\frac{2}{15}\\
-	\implies P(X \le 2) &= \frac{14}{15} \label{eq:12.13.3.25.1}
+	\pr{X \le 2} &= F_{X}(2)\\
+	\implies&= \frac{14}{15} \label{eq:12.13.3.25.1}
 	\end{align}
-	\item \textbf{Value of P(X $>$ 2):} P(X $>$ 2) translates to sum of probabilities of all random variables greater than 2, i.e.,
+	\item \textbf{Value of $P(X > 2)$:} $P(X > 2)$ translates to sum of probabilities of all states of the random variable greater than 2. In other words, it can be obtained by removing the probability of X being less than or equal to 2 from 1. From \eqref{eq:12.13.3.25.3},
 	\begin{align}
-	P(X > 2) &= \sum_{i=3}^{\infty}P(i)\\
-	\implies P(X > 2) &= P(3) \\
-	\implies P(X > 2) &= \frac{1}{15} \label{eq:12.13.3.25.2}
+	\pr{X > 2} &= 1 - F_{X}(2)\\
+	\implies &= 1 - \frac{14}{15} \\
+	\implies &= \frac{1}{15}  \label{eq:12.13.3.25.2}
 	\end{align}
 	\end{enumerate}
-\item \textbf{Value of P(X $\le$ 2) + P (X $>$ 2):} From \eqref{eq:12.13.3.25.1} and \eqref{eq:12.13.3.25.2} we can easily say that,
+\item \textbf{Value of $P(X \le 2)$ + $P(X > 2)$:} From \eqref{eq:12.13.3.25.1} and \eqref{eq:12.13.3.25.2} we can easily say that,
 \begin{align}
-	P(X \le 2) + P (X > 2) &= \frac{14}{15} + \frac{1}{15}\\
-	\implies P(X \le 2) + P (X > 2) &= 1
+	\pr{X \le 2} + \pr{X > 2} &= \frac{14}{15} + \frac{1}{15}\\
+	\implies &= 1
 \end{align}
 \end{enumerate}
+\begin{figure}
+	\centering
+	\includegraphics[width=\columnwidth]{/home/lancelot/Latex/EE2102/12.13.3.25/figs/pmf.png}
+	\caption{Generated using \eqref{eq:12.13.3.25.4}}
+	\label{fig:PMF of X}
+\end{figure}
+\begin{figure}
+	\centering
+	\includegraphics[width=\columnwidth]{/home/lancelot/Latex/EE2102/12.13.3.25/figs/cdf.png}
+	\caption{Generated using \eqref{eq:12.13.3.25.3}}
+	\label{fig:CDF of X}
+\end{figure}
 \end{document}
 
 
