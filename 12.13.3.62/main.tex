@@ -224,33 +224,16 @@ If A and B are two events and A $\ne \phi$, B $\ne \phi$, then
 %\usepackage{multirow}
 
 %\begin{document}
-
-\begin{table}[htbp]
-  \centering
-  \begin{tabular}{|c|c|c|}
-    \hline
-    Event & Random Variable & Description\\
-   % \hline
-   % Row 1 & Data 1 & Data 2 \\
-    \hline
-    \multirow{2}{*}{A} & 0 & \text{Event A doesn't happen} \\
-    \cline{2-3}
-    & 1 & \text{Event A happens} \\
-    \hline
-     \multirow{2}{*}{B} & 0 & \text{Event B doesn't happen} \\
-    \cline{2-3}
-    & 1 & \text{Event B happens} \\
-    \hline
-  \end{tabular}
-  %\caption{A table with subrows.}
-  %\label{tab:subrows}
-\end{table}
-
 %\end{document}
 
-\begin{enumerate}
-\item $\pr{A|B} = \pr{A=1,B=1}$
-\end{enumerate}
+%\begin{enumerate}
+	\begin{align}	
+	\pr{A|B} &= \frac{\pr{A.B}}{\pr{B}}\\
+	\pr{B|A} &= \frac{\pr{A.B}}{\pr{A}}\\
+	\implies \pr{A|B}.\pr{B|A} &= \frac{\pr{A.B}}{\pr{B}}.\frac{\pr{A.B}}{\pr{A}}\\
+	\implies &= \frac{{\pr{A.B}}^{2}}{\pr{A}.\pr{B}}
+	\end{align}
+%\end{enumerate}
 \end{document}
 
 
