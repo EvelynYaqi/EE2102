@@ -33,7 +33,7 @@
 %\savesymbol{iint}
 %\usepackage{txfonts}
 %\restoresymbol{TXF}{iint}
-%\usepackage{wasysym}
+\usepackage{wasysym}
 %\usepackage{amsthm}
 %\usepackage{iithtlc}
 %\usepackage{mathrsfs}
@@ -245,12 +245,15 @@ If A and B are two events and A $\ne \phi$, B $\ne \phi$, then
 	\end{table}
 \begin{enumerate}
 	\item 
+	As $\pr{\frac{A}{B}}$ represents the probability of occurence of A given that B has occured. Hence,
 	\begin{align}
-	\pr{\frac{A}{B}} &= \frac{1}{2}\label{eq:12_13_3_62_1}\\
+	\pr{\frac{A}{B}} %&= \frac{Probability that A occurs given that B occurs}{Probability that B occurs} \\
+	&=\frac{1/6}{1/3}\\
+	&=\frac{1}{2}\label{eq:12_13_3_62_1}\\
 	\pr{A}.\pr{B} &= \frac{1}{2}\times \frac{1}{3}\\
 	&= \frac{1}{6}\label{eq:12_13_3_62_2}
 	\end{align}
-	As \eqref{eq:12_13_3_62_1} and \eqref{eq:12_13_3_62_2} are not equal, option 1 is not correct.
+	As RHS of \eqref{eq:12_13_3_62_1} and \eqref{eq:12_13_3_62_2} are not equal, option 1 is not correct.
 	\item
 	\begin{align}
 		\frac{\pr{AB}}{\pr{B}} &= \frac{\frac{1}{6}}{\frac{1}{3}}\\
@@ -260,15 +263,15 @@ If A and B are two events and A $\ne \phi$, B $\ne \phi$, then
 	\begin{align}
 		\pr{\frac{A}{B}} &= \frac{\pr{AB}}{\pr{B}}\label{eq:12_13_3_62_4}
 	\end{align}
+	Equation \eqref{eq:12_13_3_62_4} is one of the axioms of probability.
 	\item
-		From \eqref{eq:12_13_3_62_3},
+		From \eqref{eq:12_13_3_62_4},
 	\begin{align}
 		\pr{\frac{A}{B}}.\pr{\frac{B}{A}} &= \frac{\pr{AB}}{\pr{B}} \times \frac{\pr{AB}}{\pr{A}}\\
 		&= \frac{{\pr{AB}}^2}{\pr{A}.\pr{B}}\\
 		&\ne 1
 	\end{align}
 		Hence, option 3 is incorrect. Let us verify it using the example.
-		From \eqref{eq:12_13_3_62_3},
 	\begin{align}
 		\frac{{\pr{AB}}^{2}}{\pr{A}.\pr{B}} &= \frac{{\frac{1}{6}}^2}{\frac{1}{2}\times \frac{1}{3}}\\
 		&= \frac{1}{6}
