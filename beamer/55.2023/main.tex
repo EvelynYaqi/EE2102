@@ -1,0 +1,100 @@
+\documentclass{beamer}
+\usetheme{default}  % You can choose a different theme
+
+\title{GATE 2023(ST) Question -55}
+\author{RAMBHA SATVIK - EE22BTECH11043}
+\institute{EE2102 - IITH}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+\frametitle{Question}
+Suppose that $U$ and $V$ are two independent and identically distributed random
+variables each having probability density function
+\begin{align}
+f(x) = 
+\begin{cases}
+\lambda^{2}xe^{-\lambda x} & \text{if } x > 0\\
+0 & Otherwise,
+\end{cases}
+\end{align}
+where $\lambda > 0$. Which of the following statements is/are true?
+\begin{enumerate}
+\item The distribution of $U-V$ is symmetric about 0
+\item The distribution of $UV$ does not depend on $\lambda$
+\item The distribution of $\frac{U}{V}$ does not depend on $\lambda$
+\item The distribution of $\frac{U}{V}$ is symmetric about 1
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\frametitle{Solution}
+A continuous random variable X is said to have a gamma distribution with parameters $\alpha>0$ and $\lambda>0$, shown as $X \sim Gamma(\alpha,\lambda)$
+, if its PDF is given by
+\begin{align}
+p_{X}(x) &= 
+\begin{cases}
+\frac{\lambda^{\alpha}x^{\alpha-1}e^{-\lambda x}}{\Gamma(\alpha)} & \text{if } x > 0\\
+0 & Otherwise,
+\end{cases}\\
+E(X)&=\frac{\alpha}{\lambda}
+\end{align}
+It is clear that both $U$ and $V$ are of Gamma distribution i.e, $U,V \sim Gamma(2,\lambda)$. Both U and V are symmetric ditributions about mean,
+\begin{align}
+E(U)=E(V)=\frac{2}{\lambda} \label{eq:55_2023_3}
+\end{align}
+\end{frame}
+\begin{frame}
+\frametitle{Option 1}
+As $U$ and $V$ are of same distribution, 
+\begin{align}
+E(U-V) = E(U) - E(V) = 0
+\end{align}
+Hence, the distribution of U-V is symmetric about 0.\\
+Option 1 is correct.
+\end{frame}
+\begin{frame}
+\frametitle{Option 2}
+As U and V are independent and identically distributed,
+\begin{align}
+E(U.V) &= E(U)\times E(V) \\
+&= \frac{4}{\lambda^{2}}
+\end{align}
+The distribution of U.V depends on $\lambda$.\\
+Option 2 is incorrect
+\end{frame}
+\begin{frame}[allowframebreaks]
+\frametitle{Option 3}
+When $X \sim Gamma(\alpha,\lambda)$,
+\begin{align}
+E(X) = \frac{\alpha}{\lambda}
+\end{align}
+In that case, $X^{-1}\sim inv.Gamma(\alpha,\beta)$,
+\begin{align}
+E(X^{-1}) = \frac{\beta}{\alpha-1} \label{eq:55_2023_1}
+\end{align}
+Using \eqref{eq:55_2023_1} we can evaluate the distribution for $\frac{1}{V}$.
+\begin{align}
+E(V^{-1}) = \frac{1}{\lambda}\label{eq:55_2023_2}
+\end{align}
+Using \eqref{eq:55_2023_2} and \eqref{eq:55_2023_3}, 
+\begin{align}
+E\brak{\frac{U}{V}} &= E(U).E(V^{-1})\\
+&= \frac{2}{\lambda}.\lambda \\ 
+&= 2 \label{eq:55_2023_4}
+\end{align}
+$E\brak{\frac{U}{V}}$ does not depend on $\lambda$.\\
+Option 3 is correct.
+\end{frame}
+\begin{frame}
+\frametitle{Option 4}
+From \eqref{eq:55_2023_4}, distribution of $\frac{U}{V}$ is symmetric about 2 (since it is its mean) and not 1.\\
+Option 4 is not correct.
+\end{frame}
+\end{document}
+
