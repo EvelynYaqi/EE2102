@@ -207,8 +207,8 @@ variables each having probability density function
 f(x) = 
 \begin{cases}
 \lambda^{2}xe^{-\lambda x} & \text{if } x > 0\\
-0 & Otherwise,
-\end{cases}
+0 & \text{Otherwise,}
+\end{cases} \label{eq:55.2023.3}
 \end{align}
 where $\lambda > 0$. Which of the following statements is/are true?
 \begin{enumerate}
@@ -229,56 +229,92 @@ where $\lambda > 0$. Which of the following statements is/are true?
 %\IEEEpeerreviewmaketitle
 
 \solution 
-A continuous random variable X is said to have a gamma distribution with parameters $\alpha>0$ and $\lambda>0$, shown as $X \sim Gamma(\alpha,\lambda)$
-, if its PDF is given by
+The give distribution is of the following form, with, $\alpha = 2$. 
 \begin{align}
-p_{X}(x) &= 
+Gamma(\alpha,\lambda) = 
 \begin{cases}
-\frac{\lambda^{\alpha}x^{\alpha-1}e^{-\lambda x}}{\Gamma(\alpha)} & \text{if } x > 0\\
-0 & Otherwise,
-\end{cases}\\
-E(X)&=\frac{\alpha}{\lambda}
+\frac{\lambda^{\alpha}x^{\alpha-1}e^{-\lambda x}}{\Gamma\brak{\alpha}} & \text{if } x > 0\\
+0 & \text{Otherwise,}
+\end{cases} \label{eq:55.2023.4}
 \end{align}
-It is clear that both $U$ and $V$ are of Gamma distribution i.e, $U,V \sim Gamma(2,\lambda)$. Both U and V are symmetric ditributions about mean,
+Where, 
 \begin{align}
-E(U)=E(V)=\frac{2}{\lambda} \label{eq:55_2023_3}
+\Gamma\brak{\alpha} = \brak{\alpha - 1}! \text{ when } \alpha \in {1,2,3,...}
+\end{align}
+Hence, U and V are Gamma distributions. Let us find out the CDF of the U,
+\begin{align}
+f_{U}(x) %&= Pr(U<x)\\
+ &= \int_{0}^{x} \lambda^{2}ye^{-\lambda y} \, dy\\
+\implies &= \lambda^{2} \int_{0}^{x} ye^{-\lambda y} \, dy\\						%\label{eq:55.2023.2}
+\end{align}
+Substituting $t = \lambda y$, i.e. $y= \frac{t}{\lambda}$ ,this becomes:
+\begin{align}
+f_{U}(x) &= \lambda^{2} \int_{0.\lambda}^{x.\lambda} \brak{\frac{t}{\lambda}} e^{-\lambda.\brak{\frac{t}{\lambda}}} \, d\brak{\frac{t}{\lambda}}\\
+&= \int_{0}^{bx} t e^{-t} \,dt\\
+\end{align}
+With the definition of the lower incomplete gamma function,
+\begin{align}
+\gamma \brak{s,x} = \int_{0}^{x} t^{s-1}e^{-t} \, dt\\
+\end{align}
+Using, \eqref{eq:55.2023.4}, we can say that,
+\begin{align}
+f_{U}(x) &= \gamma \brak{2,bx}
 \end{align}
 \begin{enumerate}
-\item As $U$ and $V$ are of same distribution, 
+\item Let us consider a random variable Z such that 
 \begin{align}
-E(U-V) = E(U) - E(V) = 0
+Z &= U-V\\
 \end{align}
-Hence, the distribution of U-V is symmetric about 0.\\
-Option 1 is correct.
-\item As U and V are independent and identically distributed,
+By the definition of Laplace transform,
 \begin{align}
-E(U.V) &= E(U)\times E(V) \\
-&= \frac{4}{\lambda^{2}}
+L_{Z}(s) &= E(e^{-sZ})\\
+\implies L_{Z}(s) &= E(e^{-s(U-V)})\\
+\implies L_{Z}(s) &= \frac{E(e^{-s(U)})}{E(e^{-s(V)})}\\
 \end{align}
-The distribution of U.V depends on $\lambda$.\\
-Option 2 is incorrect
-\item When $X \sim Gamma(\alpha,\lambda)$,
+As U and V are independent and identically distributed random
+variables,
 \begin{align}
-E(X) = \frac{\alpha}{\lambda}
+\implies L_{Z}(s) &= \frac{E(e^{-s(U)})}{E(e^{-s(U)})}\\
+\implies L_{Z}(s) &= 1
 \end{align}
-In that case, $X^{-1}\sim inv.Gamma(\alpha,\beta)$,
+Inverse transform of $L_{Z}(s)$, would give us,
 \begin{align}
-E(X^{-1}) = \frac{\beta}{\alpha-1} \label{eq:55_2023_1}
+p_{U-V}(x) &= L^{-1}(1)\\
+p_{U-V}(x) &= \delta(x) \label{eq:55.2023.1}
 \end{align}
-Using \eqref{eq:55_2023_1} we can evaluate the distribution for $\frac{1}{V}$.
+where,\\
 \begin{align}
-E(V^{-1}) = \frac{1}{\lambda}\label{eq:55_2023_2}
+\delta (x) = 
+\begin{cases}
+1 & \text{if } x = 0\\
+0 & \text{Otherwise,}
+\end{cases}
 \end{align}
-Using \eqref{eq:55_2023_2} and \eqref{eq:55_2023_3}, 
+The CDF of U-V would be,
 \begin{align}
-E\brak{\frac{U}{V}} &= E(U).E(V^{-1})\\
-&= \frac{2}{\lambda}.\lambda \\ 
-&= 2 \label{eq:55_2023_4}
+f_{U-V}(x) &= \int_{-\infty}^{x} p_{U-V}(x) \, dx\\
+\implies f_{U-V}(x) &= u(x)
 \end{align}
-$E\brak{\frac{U}{V}}$ does not depend on $\lambda$.\\
-Option 3 is correct.
-\item From \eqref{eq:55_2023_4}, distribution of $\frac{U}{V}$ is symmetric about 2 (since it is its mean) and not 1.\\
-Option 4 is not correct.
+where, \\
+\begin{align}
+u(x) = 
+\begin{cases}
+1 & \text{if } x > 0\\
+0 & \text{Otherwise,}
+\end{cases}
+\end{align}
+Hence, as per \eqref{eq:55.2023.1}, we can say that The distribution of $U-V$ is symmetric about 0.
+\item 
+\begin{align}
+Pr(UV<x) &= E\sbrak{Pr(U<\frac{x}{V})}\\
+Pr(UV<x) &= E\sbrak{Pr(f_{U}\brak{\frac{x}{V}})}\\
+Pr(UV<x) &= \int_{-\infty}^{x} Pr(y)f_{U}\brak{\frac{x}{y}} \, dy\\
+\end{align}
+From \eqref{eq:55.2023.2} and \eqref{eq:55.2023.3}, 
+\begin{align}
+Pr(UV<x) &= \int_{0}^{x} \lambda^{2}ye^{-\lambda y} \brak{1 - e^{-\lambda \frac{x}{y}}\brak{\frac{x}{y}\lambda  + 1}}  \, dy\\
+Pr(UV<x) &= \int_{0}^{x} \brak{\lambda^{2}ye^{-\lambda y} - \lambda^{3}xe^{-\lambda\brak{ y + \frac{x}{y}}} + \lambda^{2}ye^{-\lambda\brak{ y + \frac{x}{y}}} }\, dy\\
+\end{align}
 \end{enumerate}
 \end{document}
 
