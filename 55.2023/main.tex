@@ -208,7 +208,7 @@ f(x) =
 \begin{cases}
 \lambda^{2}xe^{-\lambda x} & \text{if } x > 0\\
 0 & \text{Otherwise,}
-\end{cases} \label{eq:55.2023.3}
+\end{cases} 
 \end{align}
 where $\lambda > 0$. Which of the following statements is/are true?
 \begin{enumerate}
@@ -235,7 +235,7 @@ Gamma(\alpha,\lambda) =
 \begin{cases}
 \frac{\lambda^{\alpha}x^{\alpha-1}e^{-\lambda x}}{\Gamma\brak{\alpha}} & \text{if } x > 0\\
 0 & \text{Otherwise,}
-\end{cases} \label{eq:55.2023.4}
+\end{cases} 
 \end{align}
 Where, 
 \begin{align}
@@ -245,7 +245,7 @@ Hence, U and V are Gamma distributions. Let us find out the CDF of the U,
 \begin{align}
 f_{U}(x) %&= Pr(U<x)\\
  &= \int_{0}^{x} \lambda^{2}ye^{-\lambda y} \, dy\\
-\implies &= \lambda^{2} \int_{0}^{x} ye^{-\lambda y} \, dy\\						%\label{eq:55.2023.2}
+\implies &= \lambda^{2} \int_{0}^{x} ye^{-\lambda y} \, dy\\						
 \end{align}
 Substituting $t = \lambda y$, i.e. $y= \frac{t}{\lambda}$ ,this becomes:
 \begin{align}
@@ -256,7 +256,7 @@ With the definition of the lower incomplete gamma function,
 \begin{align}
 \gamma \brak{s,x} = \int_{0}^{x} t^{s-1}e^{-t} \, dt\\
 \end{align}
-Using, \eqref{eq:55.2023.4}, we can say that,
+we can say that,
 \begin{align}
 f_{U}(x) &= \gamma \brak{2,bx}
 \end{align}
@@ -267,50 +267,36 @@ Z &= U-V\\
 \end{align}
 By the definition of Laplace transform,
 \begin{align}
-L_{Z}(s) &= E(e^{-sZ})\\
-\implies L_{Z}(s) &= E(e^{-s(U-V)})\\
-\implies L_{Z}(s) &= \frac{E(e^{-s(U)})}{E(e^{-s(V)})}\\
+M_{Z}(s) &= E(e^{-sZ})\\
+\implies  &= E(e^{-s(U-V)})\\
+\implies  &= E(e^{-s(U)})E(e^{s(V)})\\
+\implies  &= \int_{0}^{\infty} e^{-sx}\lambda^{2}xe^{-\lambda x} \, dx \int_{0}^{\infty} e^{sx}\lambda^{2}xe^{-\lambda x} \, dx \\
+\implies  &= \lambda^4\sbrak{\frac{x.e^{-(s+\lambda)x}}{-(s+\lambda)}-\frac{e^{-(s+\lambda)x}}{(s+\lambda)^2}}_0^{\infty}.\sbrak{\frac{x.e^{-(\lambda-s)x}}{-(\lambda-s)}-\frac{e^{-(\lambda-s)x}}{(\lambda-s)^2}}_0^{\infty}\\
+\implies  &= \lambda^4 \frac{-1}{(s+\lambda)^2} \frac{-1}{(\lambda-s)^2}\\
+\implies  &= \lambda^4 \frac{1}{(s^2-\lambda^2)^2}\\
+\implies  &= \frac{\lambda^3}{4 }\sbrak{\frac{1}{s(s-\lambda)^2}-\frac{1}{s(s+\lambda)^2}}\\
 \end{align}
-As U and V are independent and identically distributed random
-variables,
+\begin{multline}
+\implies M_{Z}(s) = \\\frac{\lambda^3}{4 }\sbrak{\brak{\frac{1}{\lambda^2 s}-\frac{1}{\lambda^2 (s-\lambda)}+\frac{1}{\lambda(s-\lambda)^2}}}\\- \frac{\lambda^3}{4 }\sbrak{\brak{\frac{1}{\lambda^2 s}-\frac{1}{\lambda^2 (s+\lambda)}-\frac{1}{\lambda(s+\lambda)^2}}}
+\end{multline}
+Now, we can find the inverse lapalce of $M_Z (s)$ to obtain the pdf of the random variable Z.
 \begin{align}
-\implies L_{Z}(s) &= \frac{E(e^{-s(U)})}{E(e^{-s(U)})}\\
-\implies L_{Z}(s) &= 1
+f_Z(x) = L^{-1}(M_Z(s))\\
 \end{align}
-Inverse transform of $L_{Z}(s)$, would give us,
+\begin{multline}
+f_Z(x) = \frac{\lambda^3}{4}\sbrak{\frac{1}{\lambda^2}-\frac{1}{\lambda^2}e^{\lambda x}+\frac{1}{\lambda} xe^{\lambda x}}u(x) - \\\frac{\lambda^3}{4}\sbrak{\frac{1}{\lambda^2}-\frac{1}{\lambda^2}e^{-\lambda x}+\frac{1}{\lambda} xe^{-\lambda x}}u(x)
+\end{multline}
 \begin{align}
-p_{U-V}(x) &= L^{-1}(1)\\
-p_{U-V}(x) &= \delta(x) \label{eq:55.2023.1}
+f_Z(x) = \sbrak{\frac{\lambda}{4}\brak{e^{-\lambda x}-e^{\lambda x}} + \frac{\lambda^2}{4}\brak{e^{-\lambda x}+e^{\lambda x}}}u(x) \label{eq:55.2023.1}
 \end{align}
-where,\\
-\begin{align}
-\delta (x) = 
-\begin{cases}
-1 & \text{if } x = 0\\
-0 & \text{Otherwise,}
-\end{cases}
-\end{align}
-The CDF of U-V would be,
-\begin{align}
-f_{U-V}(x) &= \int_{-\infty}^{x} p_{U-V}(x) \, dx\\
-\implies f_{U-V}(x) &= u(x)
-\end{align}
-where, \\
-\begin{align}
-u(x) = 
-\begin{cases}
-1 & \text{if } x > 0\\
-0 & \text{Otherwise,}
-\end{cases}
-\end{align}
-Hence, as per \eqref{eq:55.2023.1}, we can say that The distribution of $U-V$ is symmetric about 0.
+Looking at \eqref{eq:55.2023.1}, we can say that distribution of $U-V$ is not symmetric about 0.
 \item 
 \begin{align}
 Pr(UV<x) &= E\sbrak{Pr(U<\frac{x}{V})}\\
 Pr(UV<x) &= E\sbrak{Pr(f_{U}\brak{\frac{x}{V}})}\\
 Pr(UV<x) &= \int_{-\infty}^{x} Pr(y)f_{U}\brak{\frac{x}{y}} \, dy\\
 \end{align}
-From \eqref{eq:55.2023.2} and \eqref{eq:55.2023.3}, 
+%From \eqref{eq:55.2023.2} and \eqref{eq:55.2023.3}, 
 \begin{align}
 Pr(UV<x) &= \int_{0}^{x} \lambda^{2}ye^{-\lambda y} \brak{1 - e^{-\lambda \frac{x}{y}}\brak{\frac{x}{y}\lambda  + 1}}  \, dy\\
 Pr(UV<x) &= \int_{0}^{x} \brak{\lambda^{2}ye^{-\lambda y} - \lambda^{3}xe^{-\lambda\brak{ y + \frac{x}{y}}} + \lambda^{2}ye^{-\lambda\brak{ y + \frac{x}{y}}} }\, dy\\
