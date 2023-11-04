@@ -260,6 +260,10 @@ we can say that,
 \begin{align}
 f_{U}(x) &= \gamma \brak{2,bx}
 \end{align}
+Which upon simplification would lead to the following,
+\begin{align}
+f_{U}(x) &= e^{- \lambda x } (\lambda x + 1) -1
+\end{align}
 \begin{enumerate}
 \item Let us consider a random variable Z such that 
 \begin{align}
@@ -268,13 +272,13 @@ Z &= U-V\\
 By the definition of Laplace transform,
 \begin{align}
 M_{Z}(s) &= E(e^{-sZ})\\
-\implies  &= E(e^{-s(U-V)})\\
-\implies  &= E(e^{-s(U)})E(e^{s(V)})\\
-\implies  &= \int_{0}^{\infty} e^{-sx}\lambda^{2}xe^{-\lambda x} \, dx \int_{0}^{\infty} e^{sx}\lambda^{2}xe^{-\lambda x} \, dx \\
-\implies  &= \lambda^4\sbrak{\frac{x.e^{-(s+\lambda)x}}{-(s+\lambda)}-\frac{e^{-(s+\lambda)x}}{(s+\lambda)^2}}_0^{\infty}.\sbrak{\frac{x.e^{-(\lambda-s)x}}{-(\lambda-s)}-\frac{e^{-(\lambda-s)x}}{(\lambda-s)^2}}_0^{\infty}\\
-\implies  &= \lambda^4 \frac{-1}{(s+\lambda)^2} \frac{-1}{(\lambda-s)^2}\\
-\implies  &= \lambda^4 \frac{1}{(s^2-\lambda^2)^2}\\
-\implies  &= \frac{\lambda^3}{4 }\sbrak{\frac{1}{s(s-\lambda)^2}-\frac{1}{s(s+\lambda)^2}}\\
+  &= E(e^{-s(U-V)})\\
+  &= E(e^{-s(U)})E(e^{s(V)})\\
+  &= \int_{0}^{\infty} e^{-sx}\lambda^{2}xe^{-\lambda x} \, dx \int_{-\infty}^{0} e^{sx}\lambda^{2}xe^{-\lambda x} \, dx \\
+  &= \lambda^4\sbrak{\frac{x.e^{-(s+\lambda)x}}{-(s+\lambda)}-\frac{e^{-(s+\lambda)x}}{(s+\lambda)^2}}_0^{\infty}.\sbrak{\frac{x.e^{-(\lambda-s)x}}{-(\lambda-s)}-\frac{e^{-(\lambda-s)x}}{(\lambda-s)^2}}_0^{\infty}\\
+  &= \lambda^4 \frac{-1}{(s+\lambda)^2} \frac{-1}{(\lambda-s)^2}\\ %change values as limits have changed
+  &= \lambda^4 \frac{1}{(s^2-\lambda^2)^2}\\
+  &= \frac{\lambda^3}{4 }\sbrak{\frac{1}{s(s-\lambda)^2}-\frac{1}{s(s+\lambda)^2}}\\
 \end{align}
 \begin{multline}
 \implies M_{Z}(s) = \\\frac{\lambda^3}{4 }\sbrak{\brak{\frac{1}{\lambda^2 s}-\frac{1}{\lambda^2 (s-\lambda)}+\frac{1}{\lambda(s-\lambda)^2}}}\\- \frac{\lambda^3}{4 }\sbrak{\brak{\frac{1}{\lambda^2 s}-\frac{1}{\lambda^2 (s+\lambda)}-\frac{1}{\lambda(s+\lambda)^2}}}
@@ -300,6 +304,16 @@ Pr(UV<x) &= \int_{-\infty}^{x} Pr(y)f_{U}\brak{\frac{x}{y}} \, dy\\
 \begin{align}
 Pr(UV<x) &= \int_{0}^{x} \lambda^{2}ye^{-\lambda y} \brak{1 - e^{-\lambda \frac{x}{y}}\brak{\frac{x}{y}\lambda  + 1}}  \, dy\\
 Pr(UV<x) &= \int_{0}^{x} \brak{\lambda^{2}ye^{-\lambda y} - \lambda^{3}xe^{-\lambda\brak{ y + \frac{x}{y}}} + \lambda^{2}ye^{-\lambda\brak{ y + \frac{x}{y}}} }\, dy\\
+\end{align}
+\item
+\begin{align}
+Pr(\frac{U}{V}<x) =& E\sbrak{Pr(U<x.V)}\\
+Pr(\frac{U}{V}<x) =& E\sbrak{Pr(f_{U}\brak{x.V}})\\
+Pr(\frac{U}{V}<x) =& \int_{-\infty}^{x} Pr(y)f_{U}\brak{x.y} \, dy\\
+%\end{align}\beginlign}
+Pr(\frac{U}{V}<x) =& \int_{0}^{x} \lambda^{2}ye^{-\lambda y} \brak{1 - e^{-\lambda xy}\brak{\lambda xy   + 1}}  \, dy\\
+Pr(\frac{U}{V}<x) =& \int_{0}^{x} \brak{\lambda^{2}ye^{-\lambda y} - \lambda^{3}x y^{2} e^{-\lambda y \brak{ 1 + x}} - \lambda^{2}ye^{-\lambda y \brak{ 1 + x}} }\, dy\\
+=&  \lambda xe^{-\lambda x} -e^{-\lambda x} +1 + \frac{\lambda ^{2} x^{3} e^{-\lambda x(1+x)}}{1+x} + \\& \frac{\lambda x^{2} e^{-\lambda x(1+x)}}{(1+x)^{2}} + \frac{x e^{-\lambda x(1+x)}}{(1+x)^3} - \lambda ^{3} x
 \end{align}
 \end{enumerate}
 \end{document}
